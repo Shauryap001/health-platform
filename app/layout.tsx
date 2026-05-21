@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import CustomCursor from '@/components/CustomCursor';
 
 export const metadata: Metadata = {
   title: 'Shashwat Ayurveda — Top Rated Ayurvedic Hospital in Surat | Dr. Vishal B Bhuva',
@@ -10,7 +11,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body style={{ margin: 0 }}>{children}</body>
+      <body style={{ margin: 0 }}>
+        <CustomCursor />
+        {children}
+      </body>
     </html>
   );
 }

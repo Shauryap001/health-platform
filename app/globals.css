@@ -1507,3 +1507,64 @@ select.admin-input option { background: var(--admin-card); }
   }
 }
 
+/* ═══════════════════════════════════════════════
+   CUSTOM POINTER FOLLOWER (CURSORS)
+   ═══════════════════════════════════════════════ */
+.custom-cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.8px solid var(--gold);
+  background-color: rgba(230, 74, 25, 0.08);
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0;
+  transform: translate3d(-100px, -100px, 0);
+  transition: 
+    transform 0.1s cubic-bezier(0.25, 1, 0.5, 1),
+    width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+    height 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.custom-cursor-follower.visible {
+  opacity: 1;
+}
+
+/* Hover state: scale up, offset to keep centered, pulse and glow */
+.custom-cursor-follower.hovering {
+  width: 48px;
+  height: 48px;
+  margin-top: -12px;
+  margin-left: -12px;
+  background-color: rgba(230, 74, 25, 0.15);
+  border-color: var(--gold-light);
+  border-width: 2px;
+  box-shadow: 0 0 20px rgba(230, 74, 25, 0.35);
+  animation: cursorPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes cursorPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(230, 74, 25, 0.25);
+    background-color: rgba(230, 74, 25, 0.12);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(230, 74, 25, 0.45);
+    background-color: rgba(255, 112, 67, 0.22);
+  }
+}
+
+/* Disable follower on touch screens where hover cursor doesn't exist */
+@media (pointer: coarse) {
+  .custom-cursor-follower {
+    display: none !important;
+  }
+}
+
+
