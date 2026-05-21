@@ -1434,10 +1434,17 @@ select.admin-input option { background: var(--admin-card); }
   .hero-pub {
     background: none !important;
   }
-  .hero-overlay,
+  .hero-overlay {
+    display: block !important;
+    background: rgba(0, 0, 0, 0.45) !important;
+  }
   .hero-overlay-pattern,
   .hero-circle {
     display: none !important;
+  }
+
+  .hero-content p {
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5) !important;
   }
 
   .hero-badge-circle {
@@ -1450,7 +1457,10 @@ select.admin-input option { background: var(--admin-card); }
   .section-pub { padding: 60px 0; }
   .section-sm { padding: 40px 0; }
 
-  .h1-pub { font-size: clamp(2.2rem, 8vw, 3rem); }
+  .h1-pub { 
+    font-size: clamp(2.2rem, 8vw, 3rem); 
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5) !important;
+  }
   .h2-pub { font-size: clamp(1.8rem, 6vw, 2.4rem); }
 
   .grid-2 { grid-template-columns: 1fr; }
