@@ -38,6 +38,9 @@ export default function PublicNav() {
         {/* Logo */}
         <Link href="/" className="pub-logo" onClick={() => setOpen(false)} title="Shashwat Ayurveda">
           <div className="pub-logo-icon">🌿</div>
+          <span className="pub-logo-text">
+            Shashwat <span>Ayurveda</span>
+          </span>
         </Link>
 
         {/* Desktop links */}
@@ -92,11 +95,6 @@ export default function PublicNav() {
             </Link>
           )}
 
-          {!user && (
-            <Link href="/book" className="btn-book" style={{ fontSize: '0.85rem', padding: '10px 22px' }}>
-              Book Appointment
-            </Link>
-          )}
         </div>
 
         {/* Mobile hamburger */}
@@ -114,13 +112,6 @@ export default function PublicNav() {
 
       {/* Mobile Drawer */}
       <div className={`mobile-drawer ${open ? 'open' : ''}`}>
-        <div style={{ marginBottom: 8 }}>
-          <Link href="/" className="pub-logo" onClick={() => setOpen(false)}
-            style={{ color: 'var(--green-dark)', fontSize: '1.3rem', marginBottom: 8, display: 'flex' }}>
-            <div className="pub-logo-icon">🌿</div>
-            Shashwat <span style={{ color: 'var(--green-primary)' }}>Ayurveda</span>
-          </Link>
-        </div>
         {links.map(l => (
           <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</Link>
         ))}
