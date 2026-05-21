@@ -1490,6 +1490,29 @@ select.admin-input option { background: var(--admin-card); }
   .map-frame { min-height: 260px; }
   .newsletter-section form { flex-direction: column !important; }
   .newsletter-input { border-radius: 12px !important; }
+
+  /* Ensure Hero CTAs and Doctor CTAs are on one line and look balanced on mobile */
+  .hero-ctas, .doctor-ctas {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .hero-ctas button,
+  .hero-ctas a,
+  .doctor-ctas button,
+  .doctor-ctas a {
+    flex: 1 !important;
+    min-width: 0 !important;
+    white-space: nowrap !important;
+    font-size: clamp(0.7rem, 2.7vw, 0.88rem) !important;
+    padding: 12px 4px !important;
+    text-align: center !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
 }
 
 /* ═══════════════════════════════════════════════
@@ -1591,6 +1614,16 @@ select.admin-input option { background: var(--admin-card); }
   border-width: 2px;
   box-shadow: 0 0 25px rgba(230, 74, 25, 0.4);
   animation: cursorGlow 2s infinite ease-in-out;
+}
+
+/* Custom button hover state: subtle scale up without text magnification */
+.custom-cursor-follower.btn-hovering {
+  width: 48px;
+  height: 48px;
+  border-color: var(--gold);
+  border-width: 1.8px;
+  background-color: rgba(230, 74, 25, 0.18);
+  box-shadow: 0 0 15px rgba(230, 74, 25, 0.35);
 }
 
 /* Lens clipping container */

@@ -207,7 +207,7 @@ export default function HomePage() {
               </p>
 
               {/* CTAs */}
-              <div className="fade-left d3" style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginBottom: 48 }}>
+              <div className="fade-left d3 hero-ctas" style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginBottom: 48 }}>
                 <button className="btn-primary" style={{ fontSize: '1rem', padding: '16px 36px' }}
                   onClick={() => setBookingOpen(true)}>
                   📅 Book Appointment
@@ -444,7 +444,7 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+                <div className="doctor-ctas" style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
                   <button className="btn-primary" onClick={() => setBookingOpen(true)}>
                     📅 Book Appointment
                   </button>

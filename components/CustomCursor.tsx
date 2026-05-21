@@ -85,6 +85,8 @@ export default function CustomCursor() {
       isHovering = false;
       currentR = DEFAULT_R;
       follower.classList.remove('hovering');
+      follower.classList.remove('btn-hovering');
+      follower.style.backgroundColor = '';
       lensContent.innerHTML = '';
       activeTarget = null;
       activeClone = null;
@@ -95,6 +97,17 @@ export default function CustomCursor() {
       if (!target) return;
 
       try {
+        // Bypass text magnification on all buttons or interactive links styled as buttons
+        const isButton = target.closest('button, [role="button"], a.btn-primary, a.btn-book, a.btn-outline, a.btn-outline-green, a.btn-gold, a.btn-white, .btn-primary, .btn-book, .btn-outline, .btn-outline-green, .btn-gold, .btn-white, input[type="submit"], input[type="button"]');
+
+        if (isButton) {
+          clearMagnifier();
+          isHovering = true;
+          currentR = 24; // Matches 48px width of .btn-hovering
+          follower.classList.add('btn-hovering');
+          return;
+        }
+
         const isHoverable =
           target.closest('a') ||
           target.closest('button') ||
