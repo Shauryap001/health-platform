@@ -1430,6 +1430,23 @@ select.admin-input option { background: var(--admin-card); }
     color: inherit;
     white-space: nowrap;
   }
+
+  .hero-pub {
+    background: none !important;
+  }
+  .hero-overlay,
+  .hero-overlay-pattern,
+  .hero-circle {
+    display: none !important;
+  }
+
+  .hero-badge-circle {
+    right: 0px !important;
+    border: 2px dashed red !important;
+  }
+  .hero-badge-circle::before {
+    border-color: rgba(255, 0, 0, 0.3) !important;
+  }
   .section-pub { padding: 60px 0; }
   .section-sm { padding: 40px 0; }
 
