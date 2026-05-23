@@ -117,6 +117,71 @@ function Reveal({ children, style, className = '' }: { children: React.ReactNode
   return <div ref={ref} className={`reveal ${className}`} style={style}>{children}</div>;
 }
 
+// ── Scroll Count-Up Animation Component ──────────────────────────
+function AnimatedNumber({ value }: { value: string }) {
+  const [current, setCurrent] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const [hasStarted, setHasStarted] = useState(false);
+
+  const match = value.match(/^(\d+)(.*)$/);
+  const target = match ? parseInt(match[1], 10) : 0;
+  const suffix = match ? match[2] : '';
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasStarted(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+
+    let startTimestamp: number | null = null;
+    const duration = 2000; // 2 seconds
+
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const elapsed = timestamp - startTimestamp;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing: easeOutExpo
+      const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      const val = Math.floor(ease * target);
+      
+      setCurrent(val);
+
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      } else {
+        setCurrent(target);
+      }
+    };
+
+    window.requestAnimationFrame(step);
+  }, [hasStarted, target]);
+
+  const formatNumber = (num: number) => {
+    return num.toLocaleString('en-US');
+  };
+
+  return (
+    <span ref={ref}>
+      {hasStarted ? `${formatNumber(current)}${suffix}` : `0${suffix}`}
+    </span>
+  );
+}
+
 // ── Main Page Component ───────────────────────────────────────────
 export default function HomePage() {
   const [bookingOpen, setBookingOpen] = useState(false);
@@ -148,7 +213,7 @@ export default function HomePage() {
             style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', pointerEvents: 'none' }}
             poster="/ayurveda_hero_bg.png"
           >
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-massage-therapy-in-a-wellness-salon-42354-large.mp4" type="video/mp4" />
+            <source src="/hero_video.mp4" type="video/mp4" />
           </video>
         </div>
         <div className="hero-overlay" style={{ background: 'linear-gradient(135deg, rgba(20, 38, 24, 0.92) 0%, rgba(32, 53, 37, 0.78) 50%, rgba(62, 50, 40, 0.45) 100%)', zIndex: 2 }} />
@@ -238,7 +303,9 @@ export default function HomePage() {
           <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '24px 40px' }} className="justify-center">
             {STATS.map((s, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
-                <span className="serif" style={{ color: 'var(--gold)', fontSize: '1.8rem', fontWeight: 400 }}>{s.num}</span>
+                <span className="serif" style={{ color: 'var(--gold)', fontSize: '1.8rem', fontWeight: 400 }}>
+                  <AnimatedNumber value={s.num} />
+                </span>
                 <span className="sans" style={{ color: 'var(--text-mid)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500 }}>{s.label}</span>
               </div>
             ))}
