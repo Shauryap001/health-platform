@@ -189,6 +189,7 @@ export default function HomePage() {
   const [subscribed, setSubscribed] = useState(false);
   const [email, setEmail] = useState('');
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [videoEnded, setVideoEnded] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => setActiveTestimonial(v => (v + 1) % TESTIMONIALS.length), 5500);
@@ -204,20 +205,32 @@ export default function HomePage() {
       ══════════════════════════════════════════════════ */}
       <section className="hero-pub" style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', paddingTop: 80, overflow: 'hidden' }}>
         
-        {/* Cinematic Video Background with Poster Fallback */}
+        {/* Cinematic Video Background — falls back to hero image when video ends */}
         <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 1 }}>
+          {/* Static hero image — always present, visible when video ends */}
+          <img
+            src="/ayurveda_hero_bg.png"
+            alt="Shashwat Ayurveda Clinic"
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+          {/* Video plays over the image; fades out when ended */}
           <video
             autoPlay
-            loop
             muted
             playsInline
-            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', pointerEvents: 'none' }}
-            poster="/ayurveda_hero_bg.png"
+            onEnded={() => setVideoEnded(true)}
+            style={{
+              position: 'absolute', inset: 0, width: '100%', height: '100%',
+              objectFit: 'cover', pointerEvents: 'none',
+              opacity: videoEnded ? 0 : 1,
+              transition: 'opacity 1.8s ease',
+            }}
           >
             <source src="/hero_video.mp4" type="video/mp4" />
           </video>
         </div>
-        <div className="hero-overlay" style={{ background: 'linear-gradient(135deg, rgba(20, 38, 24, 0.92) 0%, rgba(32, 53, 37, 0.78) 50%, rgba(62, 50, 40, 0.45) 100%)', zIndex: 2 }} />
+        {/* Gradient: warm left-to-right — dark enough for text, lighter on the right to reveal the video */}
+        <div className="hero-overlay" style={{ background: 'linear-gradient(105deg, rgba(16,30,19,0.88) 0%, rgba(24,42,28,0.72) 38%, rgba(40,34,22,0.38) 65%, rgba(30,25,15,0.12) 100%)', zIndex: 2 }} />
         
         <div className="hero-content" style={{ zIndex: 10, width: '100%', position: 'relative' }}>
           <div className="container-pub">
@@ -438,15 +451,21 @@ export default function HomePage() {
             {/* Step 1: Shirodhara */}
             <div className="flex-responsive-row">
               <Reveal style={{ flex: 1.1 }}>
-                <ShirodharaPourAnimation />
-                <h3 className="serif" style={{ fontSize: '1.8rem', color: 'var(--brown)', marginBottom: 16 }}>
-                  Shirodhara: <em>Calming the Nervous Flow</em>
-                </h3>
-                <p className="p-pub" style={{ marginBottom: 20 }}>
-                  Warm, continuous streams of medicated herbal oils are poured with rhythmic precision over the forehead (the Ajna chakra). This stimulates the pineal gland, calms the sympathetic nervous system, and triggers deep somatic release.
-                </p>
-                <div style={{ fontSize: '0.9rem', color: 'var(--text-light)' }}>
-                  <strong>Indicated for:</strong> Tension headaches, chronic migraine, insomnia, anxiety, and hair thinning.
+                {/* Animation centered above the text block */}
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                  <div style={{ display: 'flex', alignItems: 'flex-end', gap: 20, marginBottom: 20 }}>
+                    {/* Bottle sits inline with the heading, aligned to its baseline */}
+                    <ShirodharaPourAnimation />
+                    <h3 className="serif" style={{ fontSize: '1.8rem', color: 'var(--brown)', marginBottom: 0, lineHeight: 1.25 }}>
+                      Shirodhara:<br /><em>Calming the Nervous Flow</em>
+                    </h3>
+                  </div>
+                  <p className="p-pub" style={{ marginBottom: 20 }}>
+                    Warm, continuous streams of medicated herbal oils are poured with rhythmic precision over the forehead (the Ajna chakra). This stimulates the pineal gland, calms the sympathetic nervous system, and triggers deep somatic release.
+                  </p>
+                  <div style={{ fontSize: '0.9rem', color: 'var(--text-light)' }}>
+                    <strong>Indicated for:</strong> Tension headaches, chronic migraine, insomnia, anxiety, and hair thinning.
+                  </div>
                 </div>
               </Reveal>
               <Reveal style={{ flex: 0.9 }}>
