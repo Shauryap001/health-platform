@@ -111,19 +111,24 @@ export default function GalleryPage() {
           </Reveal>
 
           <Reveal>
-            <div className="gallery-grid" style={{ gap: '20px' }}>
+            <div className="gallery-grid" style={{ gap: '24px' }}>
               {GALLERY_ITEMS.map((g, i) => (
                 <div key={i} className="gallery-item" onClick={() => setLightboxImg(g.src)} style={{
-                  borderRadius: i % 2 === 0 ? '20px 8px 20px 8px' : '8px 20px 8px 20px',
-                  border: '1.5px solid rgba(62,50,40,0.06)',
-                  boxShadow: 'var(--shadow-sm)'
+                  borderRadius: i % 3 === 0 ? '80px 10px 80px 10px' : i % 3 === 1 ? '10px 80px 10px 80px' : '30px',
+                  border: '1.5px solid var(--gold-light)',
+                  boxShadow: 'var(--shadow-md)',
+                  background: 'var(--white)',
+                  overflow: 'hidden',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  height: '100%'
                 }}>
-                  <img src={g.src} alt={g.label} className="gallery-img" loading="lazy" />
-                  <div className="gallery-overlay" style={{
-                    background: 'linear-gradient(to top, rgba(32,53,37,0.85) 0%, transparent 80%)'
-                  }}>
-                    <span style={{ color: '#FAF8F5', fontFamily: 'Cormorant Garamond, serif', fontSize: '1.1rem', letterSpacing: '0.02em', display: 'flex', alignItems: 'center', gap: 6 }}>
-                      <span style={{ color: 'var(--gold-light)' }}>🔍</span> {g.label}
+                  <div style={{ flex: 1, overflow: 'hidden', height: '180px' }}>
+                    <img src={g.src} alt={g.label} className="gallery-img" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  </div>
+                  <div style={{ padding: '16px 20px', background: 'var(--white)' }}>
+                    <span className="serif" style={{ color: 'var(--brown)', fontSize: '0.92rem', fontWeight: 400, display: 'flex', alignItems: 'center', gap: 6, lineHeight: 1.4 }}>
+                      <span style={{ color: 'var(--gold)' }}>✦</span> {g.label}
                     </span>
                   </div>
                 </div>

@@ -141,89 +141,100 @@ export default function ServicesPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════
-          SERVICES ASYMMETRICAL COLLAGE SECTION
+          SERVICES EDITORIAL RITUAL MENU
       ══════════════════════════════════════════════════ */}
       <section className="section-pub" style={{ padding: '140px 0' }}>
         <div className="container-pub">
-          <div className="grid-3-responsive" style={{ gap: '36px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '100px' }}>
             {SERVICES.map((s, i) => (
               <Reveal key={i} className={`d${(i % 3) + 1}`}>
-                <div className="service-card" style={{
-                  borderRadius: i % 2 === 0 ? '20px 60px 20px 60px' : '60px 20px 60px 20px',
-                  overflow: 'hidden',
-                  background: 'var(--white)',
-                  border: '1px solid rgba(62,50,40,0.06)',
-                  boxShadow: 'var(--shadow-sm)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  height: '100%',
-                  transition: 'all 0.4s ease'
-                }}>
-                  {s.img ? (
-                    <div className="parallax-wrap" style={{ height: '220px' }}>
-                      <img src={s.img} alt={s.title} className="parallax-img" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: i % 2 === 0 ? '1.15fr 0.85fr' : '0.85fr 1.15fr',
+                  gap: '80px',
+                  alignItems: 'center'
+                }} className="grid-2-responsive-unequal">
+                  
+                  {/* Column 1 (Image or Text depending on index) */}
+                  {i % 2 === 0 ? (
+                    <div className="parallax-wrap" style={{
+                      borderRadius: '160px 30px 160px 30px',
+                      border: '1.5px solid var(--gold-light)',
+                      boxShadow: 'var(--shadow-xl)',
+                      height: '420px',
+                      overflow: 'hidden'
+                    }}>
+                      {s.img ? (
+                        <img src={s.img} alt={s.title} className="parallax-img" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      ) : (
+                        <div style={{ height: '100%', background: 'var(--green-pale)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          <span style={{ fontSize: '6rem' }}>{s.icon}</span>
+                        </div>
+                      )}
                     </div>
                   ) : (
-                    <div className="service-icon-wrap" style={{ height: '220px', background: 'var(--green-pale)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <span style={{ fontSize: '4.5rem' }}>{s.icon}</span>
-                    </div>
-                  )}
-                  
-                  <div className="service-body" style={{ padding: '30px', display: 'flex', flexDirection: 'column', flex: 1 }}>
-                    <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 8, marginBottom: 12 }}>
-                      <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.4rem', fontWeight: 700, color: 'var(--text-dark)', lineHeight: 1.3 }}>
-                        {s.title}
-                      </h3>
+                    <div>
                       {s.tag && (
-                        <span style={{
-                          display: 'inline-block',
-                          background: `${s.tagColor}15`,
-                          border: `1.5px solid ${s.tagColor}40`,
-                          color: s.tagColor,
-                          borderRadius: 20,
-                          padding: '4px 10px',
-                          fontSize: '0.72rem',
-                          fontWeight: 700,
-                          whiteSpace: 'nowrap',
-                          flexShrink: 0,
-                          letterSpacing: '0.05em',
-                          textTransform: 'uppercase'
-                        }}>
+                        <span className="tag-pub" style={{ color: s.tagColor, background: `${s.tagColor}12`, borderColor: `${s.tagColor}30`, marginBottom: 20 }}>
                           {s.tag}
                         </span>
                       )}
-                    </div>
-                    
-                    <p style={{ fontSize: '0.92rem', color: 'var(--text-mid)', lineHeight: 1.7, marginBottom: 24 }}>
-                      {s.desc}
-                    </p>
-                    
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 'auto', paddingTop: 16, borderTop: '1px solid rgba(62,50,40,0.05)' }}>
-                      <div className="service-price" style={{
-                        background: 'rgba(184, 144, 71, 0.08)',
-                        border: '1.5px solid rgba(184, 144, 71, 0.25)',
-                        color: 'var(--gold)',
-                        borderRadius: 20,
-                        padding: '4px 12px',
-                        fontSize: '0.82rem',
-                        fontWeight: 700
-                      }}>
-                        {s.price}
+                      <h3 className="serif" style={{ fontSize: '2.5rem', color: 'var(--text-dark)', marginBottom: 20, fontWeight: 300 }}>
+                        {s.title}
+                      </h3>
+                      <p className="sans" style={{ fontSize: '1.05rem', color: 'var(--text-mid)', lineHeight: 1.85, marginBottom: 32, fontWeight: 300 }}>
+                        {s.desc}
+                      </p>
+                      <div style={{ display: 'flex', alignItems: 'baseline', gap: 20, marginBottom: 36 }}>
+                        <span className="serif" style={{ fontSize: '2rem', color: 'var(--gold)', fontWeight: 400 }}>{s.price}</span>
+                        <span style={{ color: 'var(--text-light)', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 600 }}>Therapy Fee</span>
                       </div>
-                      
-                      <button
-                        onClick={() => setBookingOpen(true)}
-                        style={{
-                          background: 'none', border: 'none',
-                          color: 'var(--green-primary)', fontSize: '0.9rem',
-                          fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 4,
-                          transition: 'color 0.2s',
-                        }}
-                      >
-                        Book Ritual →
+                      <button className="btn-primary" onClick={() => setBookingOpen(true)} style={{ background: 'var(--green-primary)', border: 'none', borderRadius: '30px', padding: '13px 32px', fontSize: '0.88rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                        Book Ritual
                       </button>
                     </div>
-                  </div>
+                  )}
+
+                  {/* Column 2 (Text or Image depending on index) */}
+                  {i % 2 === 0 ? (
+                    <div>
+                      {s.tag && (
+                        <span className="tag-pub" style={{ color: s.tagColor, background: `${s.tagColor}12`, borderColor: `${s.tagColor}30`, marginBottom: 20 }}>
+                          {s.tag}
+                        </span>
+                      )}
+                      <h3 className="serif" style={{ fontSize: '2.5rem', color: 'var(--text-dark)', marginBottom: 20, fontWeight: 300 }}>
+                        {s.title}
+                      </h3>
+                      <p className="sans" style={{ fontSize: '1.05rem', color: 'var(--text-mid)', lineHeight: 1.85, marginBottom: 32, fontWeight: 300 }}>
+                        {s.desc}
+                      </p>
+                      <div style={{ display: 'flex', alignItems: 'baseline', gap: 20, marginBottom: 36 }}>
+                        <span className="serif" style={{ fontSize: '2rem', color: 'var(--gold)', fontWeight: 400 }}>{s.price}</span>
+                        <span style={{ color: 'var(--text-light)', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 600 }}>Therapy Fee</span>
+                      </div>
+                      <button className="btn-primary" onClick={() => setBookingOpen(true)} style={{ background: 'var(--green-primary)', border: 'none', borderRadius: '30px', padding: '13px 32px', fontSize: '0.88rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                        Book Ritual
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="parallax-wrap" style={{
+                      borderRadius: '30px 160px 30px 160px',
+                      border: '1.5px solid var(--gold-light)',
+                      boxShadow: 'var(--shadow-xl)',
+                      height: '420px',
+                      overflow: 'hidden'
+                    }}>
+                      {s.img ? (
+                        <img src={s.img} alt={s.title} className="parallax-img" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      ) : (
+                        <div style={{ height: '100%', background: 'var(--green-pale)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          <span style={{ fontSize: '6rem' }}>{s.icon}</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
                 </div>
               </Reveal>
             ))}

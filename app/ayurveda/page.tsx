@@ -88,60 +88,72 @@ export default function AyurvedaInfoPage() {
             <div className="grid-3-responsive" style={{ gap: 36 }}>
               {/* Vata Card */}
               <Reveal className="d1">
-                <div className="card-pub" style={{
-                  borderRadius: '24px 8px 24px 8px',
-                  borderTop: '4px solid var(--gold)',
+                <div style={{
+                  borderRadius: '40px 10px 40px 10px',
+                  border: '1.5px solid var(--gold-light)',
                   background: 'var(--white)',
-                  height: '100%'
+                  boxShadow: 'var(--shadow-md)',
+                  padding: '40px 32px',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column'
                 }}>
                   <div style={{ fontSize: '2.5rem', marginBottom: 16 }}>🌬️</div>
-                  <h3 className="serif" style={{ fontSize: '1.6rem', fontWeight: 700, color: 'var(--brown)', marginBottom: 8 }}>Vata <span style={{ fontSize: '0.9rem', color: 'var(--text-light)', fontWeight: 400 }}>(Air + Space)</span></h3>
-                  <p style={{ fontSize: '0.92rem', color: 'var(--text-mid)', lineHeight: 1.65, marginBottom: 20 }}>
+                  <h3 className="serif" style={{ fontSize: '1.8rem', fontWeight: 300, color: 'var(--brown)', marginBottom: 12 }}>Vata <span style={{ fontSize: '0.85rem', color: 'var(--text-light)', fontWeight: 450, fontFamily: 'Inter, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>(Air + Space)</span></h3>
+                  <p className="sans" style={{ fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.7, marginBottom: 24, fontWeight: 300 }}>
                     Controls bodily movement, nerve impulses, circulation, breathing, and heartbeat. When out of balance, it creates restlessness and coldness.
                   </p>
-                  <div style={{ fontSize: '0.85rem', paddingTop: 16, borderTop: '1px solid rgba(62,50,40,0.05)' }}>
-                    <strong style={{ color: 'var(--brown)' }}>In Balance:</strong> Creative, energetic, light, communicative.<br/><br/>
-                    <strong style={{ color: 'var(--terracotta)' }}>Out of Balance:</strong> Anxiety, insomnia, gas/bloating, tremors, dry skin.
+                  <div style={{ fontSize: '0.88rem', paddingTop: 20, borderTop: '1px solid rgba(184,144,71,0.15)', marginTop: 'auto', lineHeight: 1.6, color: 'var(--text-mid)', fontWeight: 300 }}>
+                    <strong style={{ color: 'var(--brown)', fontWeight: 600 }}>In Balance:</strong> Creative, energetic, light, communicative.<br/><br/>
+                    <strong style={{ color: 'var(--terracotta)', fontWeight: 600 }}>Out of Balance:</strong> Anxiety, insomnia, gas/bloating, tremors, dry skin.
                   </div>
                 </div>
               </Reveal>
 
               {/* Pitta Card */}
               <Reveal className="d2">
-                <div className="card-pub" style={{
-                  borderRadius: '8px 24px 8px 24px',
-                  borderTop: '4px solid var(--terracotta)',
+                <div style={{
+                  borderRadius: '10px 40px 10px 40px',
+                  border: '1.5px solid var(--gold-light)',
                   background: 'var(--white)',
-                  height: '100%'
+                  boxShadow: 'var(--shadow-md)',
+                  padding: '40px 32px',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column'
                 }}>
                   <div style={{ fontSize: '2.5rem', marginBottom: 16 }}>🔥</div>
-                  <h3 className="serif" style={{ fontSize: '1.6rem', fontWeight: 700, color: 'var(--brown)', marginBottom: 8 }}>Pitta <span style={{ fontSize: '0.9rem', color: 'var(--text-light)', fontWeight: 400 }}>(Fire + Water)</span></h3>
-                  <p style={{ fontSize: '0.92rem', color: 'var(--text-mid)', lineHeight: 1.65, marginBottom: 20 }}>
+                  <h3 className="serif" style={{ fontSize: '1.8rem', fontWeight: 300, color: 'var(--brown)', marginBottom: 12 }}>Pitta <span style={{ fontSize: '0.85rem', color: 'var(--text-light)', fontWeight: 450, fontFamily: 'Inter, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>(Fire + Water)</span></h3>
+                  <p className="sans" style={{ fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.7, marginBottom: 24, fontWeight: 300 }}>
                     Controls the body's metabolic systems, including digestion, enzyme release, body temperature, and intellect.
                   </p>
-                  <div style={{ fontSize: '0.85rem', paddingTop: 16, borderTop: '1px solid rgba(62,50,40,0.05)' }}>
-                    <strong style={{ color: 'var(--brown)' }}>In Balance:</strong> Highly intelligent, strong digestion, focused, warm.<br/><br/>
-                    <strong style={{ color: 'var(--terracotta)' }}>Out of Balance:</strong> Acid reflux, ulcers, skin rashes, inflammation, anger.
+                  <div style={{ fontSize: '0.88rem', paddingTop: 20, borderTop: '1px solid rgba(184,144,71,0.15)', marginTop: 'auto', lineHeight: 1.6, color: 'var(--text-mid)', fontWeight: 300 }}>
+                    <strong style={{ color: 'var(--brown)', fontWeight: 600 }}>In Balance:</strong> Highly intelligent, strong digestion, focused, warm.<br/><br/>
+                    <strong style={{ color: 'var(--terracotta)', fontWeight: 600 }}>Out of Balance:</strong> Acid reflux, ulcers, skin rashes, inflammation, anger.
                   </div>
                 </div>
               </Reveal>
 
               {/* Kapha Card */}
               <Reveal className="d3">
-                <div className="card-pub" style={{
-                  borderRadius: '24px 8px 24px 8px',
-                  borderTop: '4px solid var(--green-primary)',
+                <div style={{
+                  borderRadius: '40px 10px 40px 10px',
+                  border: '1.5px solid var(--gold-light)',
                   background: 'var(--white)',
-                  height: '100%'
+                  boxShadow: 'var(--shadow-md)',
+                  padding: '40px 32px',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column'
                 }}>
                   <div style={{ fontSize: '2.5rem', marginBottom: 16 }}>🌍</div>
-                  <h3 className="serif" style={{ fontSize: '1.6rem', fontWeight: 700, color: 'var(--brown)', marginBottom: 8 }}>Kapha <span style={{ fontSize: '0.9rem', color: 'var(--text-light)', fontWeight: 400 }}>(Earth + Water)</span></h3>
-                  <p style={{ fontSize: '0.92rem', color: 'var(--text-mid)', lineHeight: 1.65, marginBottom: 20 }}>
+                  <h3 className="serif" style={{ fontSize: '1.8rem', fontWeight: 300, color: 'var(--brown)', marginBottom: 12 }}>Kapha <span style={{ fontSize: '0.85rem', color: 'var(--text-light)', fontWeight: 450, fontFamily: 'Inter, sans-serif', textTransform: 'uppercase', letterSpacing: '0.05em' }}>(Earth + Water)</span></h3>
+                  <p className="sans" style={{ fontSize: '0.95rem', color: 'var(--text-mid)', lineHeight: 1.7, marginBottom: 24, fontWeight: 300 }}>
                     Controls structure and lubrication. It supplies fluids, protects organs, moisturizes skin, and maintains the immune system.
                   </p>
-                  <div style={{ fontSize: '0.85rem', paddingTop: 16, borderTop: '1px solid rgba(62,50,40,0.05)' }}>
-                    <strong style={{ color: 'var(--brown)' }}>In Balance:</strong> Calm, loving, compassionate, strong stamina.<br/><br/>
-                    <strong style={{ color: 'var(--terracotta)' }}>Out of Balance:</strong> Weight gain, fluid retention, asthma, lethargy, congestion.
+                  <div style={{ fontSize: '0.88rem', paddingTop: 20, borderTop: '1px solid rgba(184,144,71,0.15)', marginTop: 'auto', lineHeight: 1.6, color: 'var(--text-mid)', fontWeight: 300 }}>
+                    <strong style={{ color: 'var(--brown)', fontWeight: 600 }}>In Balance:</strong> Calm, loving, compassionate, strong stamina.<br/><br/>
+                    <strong style={{ color: 'var(--terracotta)', fontWeight: 600 }}>Out of Balance:</strong> Weight gain, fluid retention, asthma, lethargy, congestion.
                   </div>
                 </div>
               </Reveal>

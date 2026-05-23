@@ -115,15 +115,16 @@ export default function PublicNav() {
         {links.map(l => (
           <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</Link>
         ))}
-        <div className="mobile-drawer-btns" style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+        <div className="mobile-drawer-btns" style={{ display: 'flex', flexDirection: 'column', gap: 12, width: '100%' }}>
           {user ? (
             <>
               <Link href={user.role === 'doctor' ? '/admin/doctor' : user.role === 'reception' ? '/admin/reception' : '/dashboard'} 
                 style={{
                   display: 'flex', alignItems: 'center', gap: 10,
-                  background: 'var(--green-pale)',
-                  borderRadius: 12, padding: '14px', fontSize: '1rem', fontWeight: 700,
-                  color: 'var(--green-dark)', textDecoration: 'none', justifyContent: 'center'
+                  background: 'rgba(255, 255, 255, 0.08)', border: '1.5px solid var(--gold-light)',
+                  borderRadius: 30, padding: '14px', fontSize: '0.88rem', fontWeight: 600,
+                  color: 'white', textDecoration: 'none', justifyContent: 'center',
+                  letterSpacing: '0.05em', textTransform: 'uppercase'
                 }}
                 onClick={() => setOpen(false)}>
                 <span>{user.avatar}</span>
@@ -131,16 +132,17 @@ export default function PublicNav() {
               </Link>
               <button onClick={() => { clearSession(); setUser(null); setOpen(false); window.location.href = '/'; }}
                 style={{
-                  justifyContent: 'center', borderRadius: 12, padding: '14px',
-                  background: 'none', border: '1px solid rgba(0,0,0,0.1)', cursor: 'pointer',
-                  fontSize: '1rem', color: 'var(--text-mid)', fontWeight: 600
+                  justifyContent: 'center', borderRadius: 30, padding: '14px',
+                  background: 'none', border: '1.5px solid rgba(255, 255, 255, 0.3)', cursor: 'pointer',
+                  fontSize: '0.88rem', color: 'rgba(255, 255, 255, 0.8)', fontWeight: 600,
+                  letterSpacing: '0.05em', textTransform: 'uppercase'
                 }}>
                 Logout
               </button>
             </>
           ) : (
-            <Link href="/login" className="btn-primary"
-              style={{ justifyContent: 'center', borderRadius: 12, padding: '14px', background: 'none', border: '2px solid var(--green-primary)', color: 'var(--green-primary)', display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none' }}
+            <Link href="/login"
+              style={{ justifyContent: 'center', borderRadius: 30, padding: '14px', background: 'none', border: '1.5px solid var(--gold-light)', color: 'var(--gold-light)', display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', letterSpacing: '0.05em', textTransform: 'uppercase', fontSize: '0.88rem' }}
               onClick={() => setOpen(false)}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -154,10 +156,11 @@ export default function PublicNav() {
           <a href="tel:+918320699167"
             style={{
               display: 'flex', alignItems: 'center', gap: 8, justifyContent: 'center',
-              padding: '14px', borderRadius: 12,
-              background: 'var(--green-pale)',
-              color: 'var(--green-dark)',
-              fontWeight: 700, fontSize: '1rem',
+              padding: '14px', borderRadius: 30,
+              background: 'none', border: '1.5px solid rgba(255, 255, 255, 0.4)',
+              color: 'white',
+              fontWeight: 600, fontSize: '0.88rem',
+              letterSpacing: '0.05em', textTransform: 'uppercase',
               textDecoration: 'none'
             }}
             onClick={() => setOpen(false)}
@@ -165,7 +168,7 @@ export default function PublicNav() {
             📞 Call +91-8320699167
           </a>
           <Link href="/book" className="btn-primary"
-            style={{ justifyContent: 'center', borderRadius: 12, padding: '14px', textDecoration: 'none' }}
+            style={{ justifyContent: 'center', borderRadius: 30, padding: '14px', background: 'var(--gold)', color: 'white', letterSpacing: '0.05em', textTransform: 'uppercase', fontSize: '0.88rem' }}
             onClick={() => setOpen(false)}
           >
             Book Appointment

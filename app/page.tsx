@@ -134,15 +134,24 @@ export default function HomePage() {
       <PublicNav />
 
       {/* ══════════════════════════════════════════════════
-          HERO SECTION (ASYMMETRICAL, CINEMATIC PARALLAX)
+          HERO SECTION (ASYMMETRICAL, CINEMATIC VIDEO BACKGROUND)
       ══════════════════════════════════════════════════ */}
       <section className="hero-pub" style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', paddingTop: 80, overflow: 'hidden' }}>
         
-        {/* Parallax background image wrap */}
-        <div className="parallax-wrap" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 1 }}>
-          <img src="/ayurveda_hero_bg.png" alt="Ayurvedic herbs and essential oils" className="hero-bg-img parallax-img" style={{ pointerEvents: 'none' }} />
+        {/* Cinematic Video Background with Poster Fallback */}
+        <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 1 }}>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', pointerEvents: 'none' }}
+            poster="/ayurveda_hero_bg.png"
+          >
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-massage-therapy-in-a-wellness-salon-42354-large.mp4" type="video/mp4" />
+          </video>
         </div>
-        <div className="hero-overlay" style={{ background: 'linear-gradient(to right, rgba(32, 53, 37, 0.9) 0%, rgba(32, 53, 37, 0.72) 50%, rgba(32, 53, 37, 0.4) 100%)', zIndex: 2 }} />
+        <div className="hero-overlay" style={{ background: 'linear-gradient(135deg, rgba(20, 38, 24, 0.92) 0%, rgba(32, 53, 37, 0.78) 50%, rgba(62, 50, 40, 0.45) 100%)', zIndex: 2 }} />
         
         <div className="hero-content" style={{ zIndex: 10, width: '100%', position: 'relative' }}>
           <div className="container-pub">
@@ -150,15 +159,15 @@ export default function HomePage() {
               
               {/* Hero Left: Text Content */}
               <div style={{ paddingRight: '20px' }}>
-                <Reveal className="d1" style={{ marginBottom: 20 }}>
-                  <span className="tag-pub" style={{ background: 'rgba(197, 168, 128, 0.15)', borderColor: 'rgba(197, 168, 128, 0.3)', color: 'var(--gold-light)' }}>
+                <Reveal className="d1" style={{ marginBottom: 24 }}>
+                  <span className="tag-pub" style={{ background: 'rgba(197, 168, 128, 0.12)', borderColor: 'rgba(197, 168, 128, 0.25)', color: 'var(--gold-light)' }}>
                     🌿 Shashwat Ayurveda & Panchkarma Hospital · Surat
                   </span>
                 </Reveal>
 
                 <Reveal className="d2">
-                  <h1 className="h1-pub" style={{ marginBottom: 24, fontSize: 'clamp(2.4rem, 5vw, 4.8rem)' }}>
-                    <SplitWords children="Treating Root Causes" />
+                  <h1 className="h1-pub" style={{ marginBottom: 28 }}>
+                    <SplitWords children="Healing Root Causes" />
                     <br />
                     <span style={{ display: 'inline-block' }}>
                       <SplitWords children="Through " delayOffset={0.2} />
@@ -171,30 +180,30 @@ export default function HomePage() {
 
                 <Reveal className="d3">
                   <p className="sans" style={{
-                    fontSize: '1.08rem', color: 'rgba(255,255,255,0.85)', lineHeight: 1.8,
-                    maxWidth: 580, marginBottom: 40,
+                    fontSize: '1.08rem', color: 'rgba(250, 248, 245, 0.9)', lineHeight: 1.8,
+                    maxWidth: 580, marginBottom: 44, fontWeight: 300, letterSpacing: '0.01em'
                   }}>
-                    "True health is not merely the absence of disease, but a state of absolute physical, mental, and spiritual harmony." Under the expert guidance of <strong style={{ color: 'white' }}>Dr. Vishal B Bhuva</strong> (BAMS, 12+ Years), we combine ancient Ayurvedic texts with Panchkarma cleansing to restore your body’s innate power.
+                    "True health is not merely the absence of disease, but a state of absolute physical, mental, and spiritual harmony." Under the expert guidance of <strong style={{ color: 'var(--cream)', fontWeight: 500 }}>Dr. Vishal B Bhuva</strong> (BAMS, 12+ Years), we combine ancient Ayurvedic scriptures with seasonal Panchkarma to restore your body’s innate power.
                   </p>
                 </Reveal>
 
                 <Reveal className="d4" style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginBottom: 48 }}>
-                  <button className="btn-primary" style={{ background: 'var(--gold)', color: 'white' }}
+                  <button className="btn-primary" style={{ background: 'var(--gold)', color: 'white', border: 'none', borderRadius: '30px', padding: '14px 32px', letterSpacing: '0.05em', textTransform: 'uppercase', fontSize: '0.88rem' }}
                     onClick={() => setBookingOpen(true)}>
                     📅 Book Consultation
                   </button>
-                  <a href="#philosophy" className="btn-outline" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.5)' }}>
+                  <a href="#philosophy" className="btn-outline" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.4)', borderRadius: '30px', padding: '14px 32px', letterSpacing: '0.05em', textTransform: 'uppercase', fontSize: '0.88rem' }}>
                     Our Healing Philosophy
                   </a>
                 </Reveal>
 
                 {/* Quick Contacts */}
-                <Reveal className="d5" style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
-                  <a href="tel:+918320699167" style={{ color: 'white', fontSize: '0.9rem', fontWeight: 500, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <Reveal className="d5" style={{ display: 'flex', gap: 20, flexWrap: 'wrap', alignItems: 'center' }}>
+                  <a href="tel:+918320699167" style={{ color: 'white', fontSize: '0.88rem', fontWeight: 500, display: 'flex', alignItems: 'center', gap: 8, letterSpacing: '0.02em' }}>
                     <span style={{ fontSize: '1.1rem' }}>📞</span> Call Doctor: +91-8320699167
                   </a>
-                  <span style={{ color: 'rgba(255,255,255,0.3)' }}>|</span>
-                  <a href="https://wa.me/918530660183" target="_blank" rel="noopener noreferrer" style={{ color: '#4ade80', fontSize: '0.9rem', fontWeight: 500, display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <span style={{ color: 'rgba(255,255,255,0.2)', display: 'none' }} className="hide-mobile">|</span>
+                  <a href="https://wa.me/918530660183" target="_blank" rel="noopener noreferrer" style={{ color: '#4ade80', fontSize: '0.88rem', fontWeight: 500, display: 'flex', alignItems: 'center', gap: 8, letterSpacing: '0.02em' }}>
                     <span>💬</span> WhatsApp Live Care
                   </a>
                 </Reveal>
@@ -222,15 +231,15 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════
-          ELEGANT STATS BAR (BREATHING & MINIMAL)
+          ELEGANT STATS BAR (MINIMAL JOURNAL CITATIONS)
       ══════════════════════════════════════════════════ */}
-      <div className="stats-bar" style={{ background: 'var(--cream-dark)', padding: '48px 0', borderTop: '1px solid rgba(62,50,40,0.06)', borderBottom: '1px solid rgba(62,50,40,0.06)' }}>
+      <div className="stats-bar" style={{ background: 'var(--ivory)', padding: '36px 0', borderTop: '1px solid rgba(184, 144, 71, 0.15)', borderBottom: '1px solid rgba(184, 144, 71, 0.15)' }}>
         <div className="container-pub">
-          <div className="grid-4" style={{ gap: '32px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '24px 40px' }} className="justify-center">
             {STATS.map((s, i) => (
-              <div key={i} className="stat-item" style={{ textAlign: 'center' }}>
-                <div className="stat-num" style={{ color: 'var(--green-dark)', fontWeight: 500, fontSize: '2.8rem' }}>{s.num}</div>
-                <div className="stat-label" style={{ color: 'var(--text-mid)', fontSize: '0.8rem', letterSpacing: '0.08em', marginTop: '6px' }}>{s.label}</div>
+              <div key={i} style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+                <span className="serif" style={{ color: 'var(--gold)', fontSize: '1.8rem', fontWeight: 400 }}>{s.num}</span>
+                <span className="sans" style={{ color: 'var(--text-mid)', fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500 }}>{s.label}</span>
               </div>
             ))}
           </div>

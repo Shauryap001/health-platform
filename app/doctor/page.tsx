@@ -153,10 +153,16 @@ export default function DoctorProfilePage() {
                   { i: '🔬', t: 'Chronic Care', d: 'Renal management, early diabetes control, and thyroid support.' },
                   { i: '👶', t: 'Suvarnaprashan', d: 'Circadian-based pediatric immunization camps for children.' },
                 ].map(x => (
-                  <div key={x.t} className="card-pub" style={{ padding: '24px', borderRadius: '16px' }}>
+                  <div key={x.t} style={{
+                    padding: '28px 24px',
+                    borderRadius: '30px 8px 30px 8px',
+                    border: '1.5px solid var(--gold-light)',
+                    background: 'var(--white)',
+                    boxShadow: 'var(--shadow-sm)'
+                  }}>
                     <div style={{ fontSize: '1.8rem', marginBottom: 12 }}>{x.i}</div>
-                    <div style={{ fontWeight: 750, fontSize: '1.02rem', color: 'var(--brown)', marginBottom: 6 }}>{x.t}</div>
-                    <div style={{ fontSize: '0.86rem', color: 'var(--text-mid)', lineHeight: 1.55 }}>{x.d}</div>
+                    <div className="serif" style={{ fontSize: '1.2rem', color: 'var(--brown)', marginBottom: 8, fontWeight: 400 }}>{x.t}</div>
+                    <div className="sans" style={{ fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.6, fontWeight: 300 }}>{x.d}</div>
                   </div>
                 ))}
               </div>

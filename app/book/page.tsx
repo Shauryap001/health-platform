@@ -269,31 +269,37 @@ export default function BookPage() {
 
           {/* Step 1: Type Selection (Online/Offline) */}
           {step === 1 && (
-            <div className="card-pub" style={{ padding: 36 }}>
-              <h2 className="h3-pub" style={{ marginBottom: 24, textAlign: 'center' }}>Select Appointment Type</h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <div style={{
+              background: 'var(--white)',
+              borderRadius: '24px',
+              padding: '40px 32px',
+              border: '1.5px solid var(--gold-light)',
+              boxShadow: 'var(--shadow-md)'
+            }}>
+              <h2 className="serif" style={{ fontSize: '2rem', marginBottom: 28, textAlign: 'center', fontWeight: 300, color: 'var(--brown)' }}>Select Appointment Type</h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                 
                 {/* Online Card */}
                 <button 
                   onClick={() => selectType('tele')}
                   style={{
-                    padding: '24px', borderRadius: 16,
-                    border: '1.5px solid rgba(39, 174, 96, 0.15)',
+                    padding: '28px 24px', borderRadius: '30px 8px 30px 8px',
+                    border: '1.5px solid var(--gold-light)',
                     background: 'var(--cream)',
-                    textAlign: 'left', cursor: 'pointer', transition: 'all 0.25s',
-                    boxShadow: '0 4px 15px rgba(0,0,0,0.02)',
-                    display: 'flex', alignItems: 'flex-start', gap: 16,
+                    textAlign: 'left', cursor: 'pointer', transition: 'all 0.3s ease',
+                    boxShadow: 'var(--shadow-sm)',
+                    display: 'flex', alignItems: 'flex-start', gap: 20,
                   }}
                   className="rzp-btn"
                 >
-                  <div style={{ fontSize: '2.5rem', padding: '10px', background: 'rgba(33, 150, 243, 0.08)', borderRadius: 14, flexShrink: 0 }}>📹</div>
+                  <div style={{ fontSize: '2.5rem', padding: '12px', background: 'rgba(184, 144, 71, 0.08)', borderRadius: '16px', flexShrink: 0 }}>📹</div>
                   <div>
-                    <div style={{ fontWeight: 700, fontSize: '1.1rem', color: 'var(--text-dark)', marginBottom: 6 }}>Online Video Consultation</div>
-                    <div style={{ fontSize: '0.86rem', color: 'var(--text-mid)', lineHeight: 1.5, marginBottom: 10 }}>
+                    <div className="serif" style={{ fontWeight: 400, fontSize: '1.25rem', color: 'var(--brown)', marginBottom: 6 }}>Online Video Consultation</div>
+                    <div className="sans" style={{ fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.6, marginBottom: 12, fontWeight: 300 }}>
                       Consult with doctor from anywhere via high-quality video call. Perfect for primary diagnosis, chronic plans, and follow-ups.
                     </div>
-                    <span style={{ fontSize: '0.8rem', background: 'rgba(33, 150, 243, 0.12)', color: '#1976D2', padding: '5px 12px', borderRadius: 8, fontWeight: 700 }}>
-                      ₹800 Fee
+                    <span className="serif" style={{ fontSize: '0.85rem', background: 'rgba(184, 144, 71, 0.12)', color: 'var(--gold)', padding: '6px 14px', borderRadius: 20, fontWeight: 550, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                      ₹800 Ritual Fee
                     </span>
                   </div>
                 </button>
@@ -302,23 +308,23 @@ export default function BookPage() {
                 <button 
                   onClick={() => selectType('clinic')}
                   style={{
-                    padding: '24px', borderRadius: 16,
-                    border: '1.5px solid rgba(39, 174, 96, 0.15)',
+                    padding: '28px 24px', borderRadius: '8px 30px 8px 30px',
+                    border: '1.5px solid var(--gold-light)',
                     background: 'var(--cream)',
-                    textAlign: 'left', cursor: 'pointer', transition: 'all 0.25s',
-                    boxShadow: '0 4px 15px rgba(0,0,0,0.02)',
-                    display: 'flex', alignItems: 'flex-start', gap: 16,
+                    textAlign: 'left', cursor: 'pointer', transition: 'all 0.3s ease',
+                    boxShadow: 'var(--shadow-sm)',
+                    display: 'flex', alignItems: 'flex-start', gap: 20,
                   }}
                   className="rzp-btn"
                 >
-                  <div style={{ fontSize: '2.5rem', padding: '10px', background: 'rgba(39, 174, 96, 0.08)', borderRadius: 14, flexShrink: 0 }}>🏥</div>
+                  <div style={{ fontSize: '2.5rem', padding: '12px', background: 'rgba(184, 144, 71, 0.08)', borderRadius: '16px', flexShrink: 0 }}>🏥</div>
                   <div>
-                    <div style={{ fontWeight: 700, fontSize: '1.1rem', color: 'var(--text-dark)', marginBottom: 6 }}>In-Clinic Consultation & Treatment</div>
-                    <div style={{ fontSize: '0.86rem', color: 'var(--text-mid)', lineHeight: 1.5, marginBottom: 10 }}>
+                    <div className="serif" style={{ fontWeight: 400, fontSize: '1.25rem', color: 'var(--brown)', marginBottom: 6 }}>In-Clinic Consultation & Treatment</div>
+                    <div className="sans" style={{ fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.6, marginBottom: 12, fontWeight: 300 }}>
                       Visit Dr. Bhuva at our clinic in Vesu, Surat for physical checkups, Nadi Pariksha, and custom Panchakarma therapies.
                     </div>
-                    <span style={{ fontSize: '0.8rem', background: 'rgba(39, 174, 96, 0.12)', color: 'var(--green-primary)', padding: '5px 12px', borderRadius: 8, fontWeight: 700 }}>
-                      ₹500 Fee
+                    <span className="serif" style={{ fontSize: '0.85rem', background: 'rgba(184, 144, 71, 0.12)', color: 'var(--gold)', padding: '6px 14px', borderRadius: 20, fontWeight: 550, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                      ₹500 Ritual Fee
                     </span>
                   </div>
                 </button>
