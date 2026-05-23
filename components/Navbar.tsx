@@ -114,16 +114,19 @@ export default function PublicNav() {
                     style={{
                       background: 'none',
                       border: 'none',
-                      color: scrolled ? 'var(--text-dark)' : 'rgba(255,255,255,0.9)',
-                      fontFamily: 'inherit',
-                      fontSize: '1rem',
+                      color: scrolled ? 'var(--text-mid)' : 'rgba(255,255,255,0.9)',
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: '0.88rem',
                       fontWeight: 500,
+                      letterSpacing: '0.05em',
+                      textTransform: 'uppercase',
                       cursor: 'pointer',
                       display: 'flex',
                       alignItems: 'center',
                       gap: 6,
                       padding: '4px 0',
-                      transition: 'color 0.3s'
+                      transition: 'all 0.3s ease',
+                      position: 'relative'
                     }}
                   >
                     Services
@@ -297,18 +300,21 @@ export default function PublicNav() {
       {/* Mega Menu Dropdown */}
       {servicesDropdownOpen && (
         <div
-          className="mega-menu"
+          className="mega-menu no-scrollbar"
           style={{
             position: 'absolute',
             top: '100%',
             left: 0,
             right: 0,
             background: 'var(--cream)',
+            color: 'var(--text-dark)',
             borderBottom: '1.5px solid rgba(184, 144, 71, 0.25)',
             boxShadow: '0 20px 40px rgba(0,0,0,0.08)',
-            padding: '40px 60px 50px',
+            padding: '30px 60px 40px',
             animation: 'slideDownFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
             zIndex: 1001,
+            maxHeight: '50vh',
+            overflowY: 'auto',
           }}
         >
           <div className="container-pub">
@@ -328,6 +334,7 @@ export default function PublicNav() {
                     transition: 'all 0.3s ease',
                     border: '1.5px solid transparent',
                     background: 'rgba(250, 248, 245, 0.4)',
+                    color: 'var(--text-dark)',
                   }}
                 >
                   <div style={{ fontSize: '1.8rem', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--ivory)', width: 50, height: 50, borderRadius: '12px', border: '1px solid rgba(184, 144, 71, 0.15)', flexShrink: 0 }}>
