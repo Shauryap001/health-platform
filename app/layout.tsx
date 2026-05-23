@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import CustomCursor from '@/components/CustomCursor';
+import SmoothScroll from '@/components/SmoothScroll';
 
 export const metadata: Metadata = {
   title: 'Shashwat Ayurveda — Top Rated Ayurvedic Hospital in Surat | Dr. Vishal B Bhuva',
@@ -12,7 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body style={{ margin: 0 }}>
-        <CustomCursor />
+        <SmoothScroll />
         {children}
       </body>
     </html>

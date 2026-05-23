@@ -69,13 +69,13 @@ export default function PublicNav() {
               <Link href={user.role === 'doctor' ? '/admin/doctor' : user.role === 'reception' ? '/admin/reception' : '/dashboard'} 
                 style={{
                   display: 'flex', alignItems: 'center', gap: 6,
-                  background: 'rgba(39, 174, 96, 0.1)', border: '1.5px solid rgba(39, 174, 96, 0.3)',
+                  background: 'rgba(58, 95, 67, 0.1)', border: '1.5px solid rgba(58, 95, 67, 0.3)',
                   borderRadius: '20px', padding: '6px 12px', fontSize: '0.82rem', fontWeight: 700,
                   color: scrolled ? 'var(--green-dark)' : 'white', cursor: 'pointer', transition: 'all 0.3s',
                   textDecoration: 'none'
                 }}>
-                <span>{user.avatar}</span>
-                <span>{user.name.split(' ')[0]}</span>
+                  <span>{user.avatar}</span>
+                  <span>{user.name.split(' ')[0]}</span>
               </Link>
               <button onClick={() => { clearSession(); setUser(null); window.location.href = '/'; }}
                 style={{
@@ -87,7 +87,7 @@ export default function PublicNav() {
               </button>
             </div>
           ) : (
-            <Link href="/login" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: scrolled ? 'var(--green-primary)' : 'white', textDecoration: 'none', background: scrolled ? 'rgba(39,174,96,0.06)' : 'rgba(255,255,255,0.12)', border: scrolled ? '1.5px solid var(--green-primary)' : '1.5px solid rgba(255,255,255,0.4)', borderRadius: '50%', width: '34px', height: '34px', transition: 'all 0.3s' }} title="Login / Health Portal">
+            <Link href="/login" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: scrolled ? 'var(--green-primary)' : 'white', textDecoration: 'none', background: scrolled ? 'rgba(58,95,67,0.06)' : 'rgba(255,255,255,0.12)', border: scrolled ? '1.5px solid var(--green-primary)' : '1.5px solid rgba(255,255,255,0.4)', borderRadius: '50%', width: '34px', height: '34px', transition: 'all 0.3s' }} title="Login / Health Portal">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                 <circle cx="12" cy="7" r="4" />
