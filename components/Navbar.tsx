@@ -201,6 +201,91 @@ export default function PublicNav() {
           <span style={{ opacity: open ? 0 : 1, transform: open ? 'scaleX(0)' : 'none' }} />
           <span style={{ transform: open ? 'rotate(-45deg) translateY(-7px)' : 'none' }} />
         </button>
+
+        {/* Mega Menu Dropdown (placed inside nav for relative positioning context) */}
+        {servicesDropdownOpen && (
+          <div
+            className="mega-menu no-scrollbar"
+            style={{
+              position: 'absolute',
+              top: '100%',
+              left: 0,
+              right: 0,
+              background: 'var(--cream)',
+              color: 'var(--text-dark)',
+              borderBottom: '1.5px solid rgba(184, 144, 71, 0.25)',
+              boxShadow: '0 20px 40px rgba(0,0,0,0.08)',
+              padding: '30px 60px 40px',
+              animation: 'slideDownFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              zIndex: 1001,
+              maxHeight: '50vh',
+              overflowY: 'auto',
+            }}
+          >
+            <div className="container-pub">
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px 32px' }}>
+                {NAV_SERVICES.map((s, idx) => (
+                  <Link
+                    key={idx}
+                    href={`/services#${s.id}`}
+                    onClick={() => setServicesDropdownOpen(false)}
+                    className="mega-menu-item"
+                    style={{
+                      display: 'flex',
+                      gap: 16,
+                      textDecoration: 'none',
+                      padding: '16px',
+                      borderRadius: '16px',
+                      transition: 'all 0.3s ease',
+                      border: '1.5px solid transparent',
+                      background: 'rgba(250, 248, 245, 0.4)',
+                      color: 'var(--text-dark)',
+                    }}
+                  >
+                    <div style={{ fontSize: '1.8rem', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--ivory)', width: 50, height: 50, borderRadius: '12px', border: '1px solid rgba(184, 144, 71, 0.15)', flexShrink: 0 }}>
+                      {s.icon}
+                    </div>
+                    <div>
+                      <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.2rem', fontWeight: 600, color: 'var(--brown)', marginBottom: 4 }}>
+                        {s.title}
+                      </div>
+                      <p style={{ fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.45, margin: 0, fontWeight: 300 }}>
+                        {s.desc}
+                      </p>
+                      <div style={{ marginTop: 8, fontSize: '0.75rem', color: 'var(--gold)', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                        Fee: {s.price}
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+              <div style={{ textAlign: 'center', marginTop: 36, borderTop: '1px solid rgba(184, 144, 71, 0.12)', paddingTop: 20 }}>
+                <Link 
+                  href="/services" 
+                  onClick={() => setServicesDropdownOpen(false)}
+                  style={{
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    background: 'var(--green-primary)',
+                    color: 'white',
+                    padding: '10px 24px',
+                    borderRadius: '30px',
+                    fontSize: '0.82rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.05em',
+                    textTransform: 'uppercase',
+                    transition: 'all 0.3s'
+                  }}
+                  className="view-all-services-btn"
+                >
+                  View All Treatments & Rituals Menu ↗
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Mobile Drawer */}
@@ -297,90 +382,7 @@ export default function PublicNav() {
         />
       )}
 
-      {/* Mega Menu Dropdown */}
-      {servicesDropdownOpen && (
-        <div
-          className="mega-menu no-scrollbar"
-          style={{
-            position: 'absolute',
-            top: '100%',
-            left: 0,
-            right: 0,
-            background: 'var(--cream)',
-            color: 'var(--text-dark)',
-            borderBottom: '1.5px solid rgba(184, 144, 71, 0.25)',
-            boxShadow: '0 20px 40px rgba(0,0,0,0.08)',
-            padding: '30px 60px 40px',
-            animation: 'slideDownFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-            zIndex: 1001,
-            maxHeight: '50vh',
-            overflowY: 'auto',
-          }}
-        >
-          <div className="container-pub">
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px 32px' }}>
-              {NAV_SERVICES.map((s, idx) => (
-                <Link
-                  key={idx}
-                  href={`/services#${s.id}`}
-                  onClick={() => setServicesDropdownOpen(false)}
-                  className="mega-menu-item"
-                  style={{
-                    display: 'flex',
-                    gap: 16,
-                    textDecoration: 'none',
-                    padding: '16px',
-                    borderRadius: '16px',
-                    transition: 'all 0.3s ease',
-                    border: '1.5px solid transparent',
-                    background: 'rgba(250, 248, 245, 0.4)',
-                    color: 'var(--text-dark)',
-                  }}
-                >
-                  <div style={{ fontSize: '1.8rem', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--ivory)', width: 50, height: 50, borderRadius: '12px', border: '1px solid rgba(184, 144, 71, 0.15)', flexShrink: 0 }}>
-                    {s.icon}
-                  </div>
-                  <div>
-                    <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.2rem', fontWeight: 600, color: 'var(--brown)', marginBottom: 4 }}>
-                      {s.title}
-                    </div>
-                    <p style={{ fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.45, margin: 0, fontWeight: 300 }}>
-                      {s.desc}
-                    </p>
-                    <div style={{ marginTop: 8, fontSize: '0.75rem', color: 'var(--gold)', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
-                      Fee: {s.price}
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-            <div style={{ textAlign: 'center', marginTop: 36, borderTop: '1px solid rgba(184, 144, 71, 0.12)', paddingTop: 20 }}>
-              <Link 
-                href="/services" 
-                onClick={() => setServicesDropdownOpen(false)}
-                style={{
-                  textDecoration: 'none',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 8,
-                  background: 'var(--green-primary)',
-                  color: 'white',
-                  padding: '10px 24px',
-                  borderRadius: '30px',
-                  fontSize: '0.82rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.05em',
-                  textTransform: 'uppercase',
-                  transition: 'all 0.3s'
-                }}
-                className="view-all-services-btn"
-              >
-                View All Treatments & Rituals Menu ↗
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
+
 
       {/* Show hamburger on mobile via inline style injection */}
       <style>{`
