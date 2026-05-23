@@ -49,7 +49,7 @@ export default function DoctorProfilePage() {
       <div style={{ paddingTop: 140, paddingBottom: 80 }}>
         <div className="container-pub">
           
-          <div style={{ display: 'grid', gridTemplateColumns: '0.9fr 1.1fr', gap: '80px', alignItems: 'center' }} className="grid-2-responsive">
+          <div style={{ alignItems: 'center', gap: '80px' }} className="grid-2-responsive-unequal">
             
             {/* Left: Image / Portrait frame with Parallax */}
             <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
@@ -118,7 +118,7 @@ export default function DoctorProfilePage() {
           </div>
 
           {/* Timeline & Expertise */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.1fr', gap: '80px', marginTop: 100 }} className="grid-2-responsive">
+          <div style={{ gap: '80px', marginTop: 100 }} className="grid-2-responsive-unequal">
             
             {/* Left Column: Education */}
             <Reveal>
@@ -130,8 +130,8 @@ export default function DoctorProfilePage() {
                   { y: 'AMAI Member', t: 'Ayurveda Medical Association of India', d: 'Active professional member promoting authentic Ayurvedic practices and medical standards.' },
                   { y: 'Reg: GB I 18974', t: 'Registered Ayurvedic Practitioner', d: 'Licensed by the Gujarat Board of Ayurvedic & Unani Systems of Medicine.' }
                 ].map((e, i) => (
-                  <div key={i} style={{ display: 'flex', gap: 20 }}>
-                    <div style={{ width: 120, flexShrink: 0, fontSize: '0.88rem', fontWeight: 700, color: 'var(--gold)', paddingTop: 4 }}>{e.y}</div>
+                  <div key={i} className="timeline-item">
+                    <div className="timeline-year">{e.y}</div>
                     <div style={{ flex: 1, paddingBottom: 24, borderBottom: i < 3 ? '1px solid rgba(62,50,40,0.08)' : 'none' }}>
                       <div style={{ fontWeight: 750, fontSize: '1.02rem', color: 'var(--brown)', marginBottom: 4 }}>{e.t}</div>
                       <div style={{ fontSize: '0.9rem', color: 'var(--text-mid)', lineHeight: 1.6 }}>{e.d}</div>

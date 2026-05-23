@@ -146,7 +146,7 @@ export default function HomePage() {
         
         <div className="hero-content" style={{ zIndex: 10, width: '100%', position: 'relative' }}>
           <div className="container-pub">
-            <div style={{ display: 'grid', gridTemplateColumns: '1.25fr 0.75fr', gap: '40px', alignItems: 'center' }} className="grid-2-responsive">
+            <div style={{ alignItems: 'center', gap: '40px' }} className="grid-2-responsive-unequal">
               
               {/* Hero Left: Text Content */}
               <div style={{ paddingRight: '20px' }}>
@@ -256,7 +256,7 @@ export default function HomePage() {
       ══════════════════════════════════════════════════ */}
       <section id="philosophy" className="section-pub" style={{ background: 'var(--cream)', padding: '140px 0 100px' }}>
         <div className="container-pub">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.1fr', gap: '80px', alignItems: 'center' }} className="grid-2-responsive">
+          <div style={{ alignItems: 'center', gap: '80px' }} className="grid-2-responsive-unequal">
             
             {/* Left: Asymmetrical Image Collage with Parallax */}
             <Reveal style={{ position: 'relative' }}>
@@ -313,7 +313,7 @@ export default function HomePage() {
               </Reveal>
 
               {/* Philosophy Elements */}
-              <Reveal className="d2 grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: 40 }}>
+              <Reveal className="d2 grid-2" style={{ gap: '20px', marginBottom: 40 }}>
                 <div style={{ borderLeft: '3px solid var(--gold)', paddingLeft: '16px' }}>
                   <h4 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.2rem', fontWeight: 700, color: 'var(--text-dark)', marginBottom: 6 }}>Root-Cause Analysis</h4>
                   <p style={{ fontSize: '0.84rem', color: 'var(--text-light)', lineHeight: 1.5 }}>Addressing the physical and psychological sources of illness, rather than superficial recovery.</p>
@@ -359,7 +359,7 @@ export default function HomePage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '80px' }}>
             
             {/* Step 1: Shirodhara */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '60px' }} className="grid-2-responsive">
+            <div className="flex-responsive-row">
               <Reveal style={{ flex: 1.1 }}>
                 <span style={{ fontSize: '2.5rem', display: 'block', marginBottom: 12 }}>🫗</span>
                 <h3 className="serif" style={{ fontSize: '1.8rem', color: 'var(--brown)', marginBottom: 16 }}>
@@ -380,7 +380,7 @@ export default function HomePage() {
             </div>
 
             {/* Step 2: Virechana & Vamana */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '60px', flexDirection: 'row-reverse' }} className="grid-2-responsive">
+            <div className="flex-responsive-row-reverse">
               <Reveal style={{ flex: 1.1 }}>
                 <span style={{ fontSize: '2.5rem', display: 'block', marginBottom: 12 }}>🌊</span>
                 <h3 className="serif" style={{ fontSize: '1.8rem', color: 'var(--brown)', marginBottom: 16 }}>
@@ -416,7 +416,7 @@ export default function HomePage() {
       ══════════════════════════════════════════════════ */}
       <section id="doctor" className="section-pub" style={{ background: 'var(--cream)', padding: '140px 0' }}>
         <div className="container-pub">
-          <div style={{ display: 'grid', gridTemplateColumns: '0.9fr 1.1fr', gap: '60px', alignItems: 'center' }} className="grid-2-responsive">
+          <div style={{ alignItems: 'center', gap: '60px' }} className="grid-2-responsive-unequal">
             
             {/* Left: Doctor Photo with Parallax frame */}
             <Reveal style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>

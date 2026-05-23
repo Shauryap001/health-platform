@@ -152,7 +152,7 @@ export default function AyurvedaInfoPage() {
         {/* Treatment Approach */}
         <section className="section-pub" style={{ padding: '120px 0 40px' }}>
           <div className="container-pub">
-            <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '80px', alignItems: 'center' }} className="grid-2-responsive">
+            <div style={{ alignItems: 'center', gap: '80px' }} className="grid-2-responsive-unequal">
               <Reveal>
                 <span className="tag-pub">🌿 The Recovery Process</span>
                 <h2 className="h2-pub" style={{ marginBottom: 24 }}>Aligning Vikriti to <em>Prakriti</em></h2>

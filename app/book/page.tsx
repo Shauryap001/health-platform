@@ -377,7 +377,7 @@ export default function BookPage() {
               </div>
 
               <div style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-mid)', marginBottom: 8 }}>Preferred Date</div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 8, marginBottom: 24 }} className="grid-4">
+              <div className="booking-calendar-grid no-scrollbar">
                 {dates.map(d => {
                   const dt = new Date(d + 'T12:00:00');
                   return (
@@ -398,7 +398,7 @@ export default function BookPage() {
                       ⚠ No slots available on this date. Please choose another date.
                     </div>
                   ) : (
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10, marginBottom: 24 }}>
+                    <div className="booking-slots-grid">
                       {SLOTS.filter(s => !bookedSlots.includes(s)).map(s => (
                         <button key={s} onClick={() => setSlot(s)} className={`slot-btn ${slot === s ? 'selected' : ''}`}>{s}</button>
                       ))}
@@ -439,7 +439,7 @@ export default function BookPage() {
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }} className="grid-2-responsive">
+                <div style={{ gap: 14 }} className="grid-2-responsive">
                   <div className="form-field">
                     <label className="form-label">Full Name *</label>
                     <input className="form-ctrl" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} placeholder="Your full name" />

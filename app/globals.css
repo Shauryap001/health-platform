@@ -1500,10 +1500,10 @@ select.admin-input option { background: var(--admin-card); }
 
   .hero-badge-circle {
     right: 0px !important;
-    border: 2px dashed red !important;
+    border: 2px dashed var(--gold-light) !important;
   }
   .hero-badge-circle::before {
-    border-color: rgba(255, 0, 0, 0.3) !important;
+    border-color: rgba(184, 144, 71, 0.3) !important;
   }
   .section-pub { padding: 60px 0; }
   .section-sm { padding: 40px 0; }
@@ -1627,6 +1627,129 @@ select.admin-input option { background: var(--admin-card); }
   }
 }
 
+/* Responsive unequal grid (e.g. 1.2fr 0.8fr) */
+.grid-2-responsive-unequal {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px 80px;
+}
+@media (max-width: 1024px) {
+  .grid-2-responsive-unequal {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .grid-2-responsive-unequal {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
 
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Responsive flex rows with desktop ratios, collapsing on mobile */
+.flex-responsive-row {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+.flex-responsive-row-reverse {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-direction: row-reverse;
+}
+@media (max-width: 768px) {
+  .flex-responsive-row,
+  .flex-responsive-row-reverse {
+    flex-direction: column !important;
+    gap: 32px;
+  }
+  .flex-responsive-row > *,
+  .flex-responsive-row-reverse > * {
+    width: 100% !important;
+    flex: none !important;
+  }
+}
+
+/* Responsive visibility utilities */
+@media (max-width: 1024px) {
+  .hide-tablet {
+    display: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+/* Timeline Layout Styles */
+.timeline-item {
+  display: flex;
+  gap: 20px;
+}
+.timeline-year {
+  width: 120px;
+  flex-shrink: 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--gold);
+  padding-top: 4px;
+}
+@media (max-width: 768px) {
+  .timeline-item {
+    flex-direction: column !important;
+    gap: 6px !important;
+  }
+  .timeline-year {
+    width: 100% !important;
+    padding-top: 0 !important;
+  }
+}
+
+/* Booking Page Calendar Slider Styles */
+.booking-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 24px;
+}
+@media (max-width: 768px) {
+  .booking-calendar-grid {
+    display: flex !important;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 12px;
+    gap: 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .booking-calendar-grid > * {
+    flex: 0 0 75px !important; /* Fixed size buttons on mobile */
+    scroll-snap-align: start;
+  }
+}
+
+/* Booking Slots Grid */
+.booking-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+@media (max-width: 480px) {
+  .booking-slots-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 
