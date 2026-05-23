@@ -4,6 +4,7 @@ import Link from 'next/link';
 import PublicNav from '@/components/Navbar';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import OfflineBookingModal from '@/components/OfflineBookingModal';
+import ShirodharaPourAnimation from '@/components/ShirodharaPourAnimation';
 
 // ── Data ──────────────────────────────────────────────────────────
 const CONDITIONS = [
@@ -15,7 +16,7 @@ const CONDITIONS = [
 
 const SERVICES = [
   {
-    icon: '🏥',
+    icon: '/logo_clinic.png',
     title: 'In-Clinic Ayurved Consultation',
     price: '₹500',
     desc: 'Deep Prakriti analysis and custom pulse examination (Nadi Pariksha) with Dr. Vishal B Bhuva at Vesu, Surat clinic.',
@@ -23,7 +24,7 @@ const SERVICES = [
     tagColor: 'var(--gold)',
   },
   {
-    icon: '💻',
+    icon: '/logo_video.png',
     title: 'Tele / Video Consultation',
     price: '₹800',
     desc: 'Consult virtually from anywhere. Includes detailed root-cause evaluation and home-delivery prescription of authentic herbs.',
@@ -31,7 +32,7 @@ const SERVICES = [
     tagColor: 'var(--green-primary)',
   },
   {
-    icon: '🌊',
+    icon: '/logo_panchkarma.png',
     title: 'Panchkarma Detox Therapy',
     price: 'Customized',
     desc: 'Five sacred detoxification procedures (Vamana, Virechana, Basti, Nasya, Raktamokshana) tailored to remove toxins.',
@@ -39,7 +40,7 @@ const SERVICES = [
     tagColor: 'var(--terracotta)',
   },
   {
-    icon: '🫗',
+    icon: '/logo_shirodhara.png',
     title: 'Shirodhara Ritual',
     price: 'Customized',
     desc: 'Continuous flow of warm medicated herbal oil on the forehead. Dissolves deep-seated stress, migraine, and insomnia.',
@@ -437,7 +438,7 @@ export default function HomePage() {
             {/* Step 1: Shirodhara */}
             <div className="flex-responsive-row">
               <Reveal style={{ flex: 1.1 }}>
-                <span style={{ fontSize: '2.5rem', display: 'block', marginBottom: 12 }}>🫗</span>
+                <ShirodharaPourAnimation />
                 <h3 className="serif" style={{ fontSize: '1.8rem', color: 'var(--brown)', marginBottom: 16 }}>
                   Shirodhara: <em>Calming the Nervous Flow</em>
                 </h3>
@@ -458,7 +459,7 @@ export default function HomePage() {
             {/* Step 2: Virechana & Vamana */}
             <div className="flex-responsive-row-reverse">
               <Reveal style={{ flex: 1.1 }}>
-                <span style={{ fontSize: '2.5rem', display: 'block', marginBottom: 12 }}>🌊</span>
+                <img src="/logo_panchkarma.png" alt="Panchkarma" style={{ width: '80px', height: '80px', objectFit: 'contain', display: 'block', marginBottom: 12, filter: 'drop-shadow(0 3px 10px rgba(184,144,71,0.25))' }} />
                 <h3 className="serif" style={{ fontSize: '1.8rem', color: 'var(--brown)', marginBottom: 16 }}>
                   Virechana & Vamana: <em>Internal Cellular Detox</em>
                 </h3>

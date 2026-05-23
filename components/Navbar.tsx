@@ -6,42 +6,42 @@ import { getSession, clearSession, type StaffUser } from '@/lib/auth';
 const NAV_SERVICES = [
   {
     id: 'clinic-consultation',
-    icon: '🏥',
+    icon: '/logo_clinic.png',
     title: 'In-Clinic Consultation',
     desc: 'Deep Prakriti analysis and custom pulse examination (Nadi Pariksha) with Dr. Vishal Bhuva.',
     price: '₹500',
   },
   {
     id: 'video-consultation',
-    icon: '💻',
+    icon: '/logo_video.png',
     title: 'Tele / Video Consultation',
     desc: 'Consult virtually from anywhere. Includes herbal delivery prescription.',
     price: '₹800',
   },
   {
     id: 'panchkarma-detox',
-    icon: '🌊',
+    icon: '/logo_panchkarma.png',
     title: 'Panchkarma Detox Therapy',
     desc: 'Classical purification techniques for cellular tissue rejuvenation.',
     price: 'Customized',
   },
   {
     id: 'shirodhara-ritual',
-    icon: '🫗',
+    icon: '/logo_shirodhara.png',
     title: 'Shirodhara Ritual',
     desc: 'Medicated warm oil stream on forehead to dissolve deep stress.',
     price: 'Customized',
   },
   {
     id: 'akshi-tarpan',
-    icon: '👁️',
+    icon: '/logo_akshi.png',
     title: 'Akshi-Tarpan (Eye Care)',
     desc: 'Medicated organic ghee pool around eyes to relieve digital eye strain.',
     price: 'Customized',
   },
   {
     id: 'suvarnaprashan',
-    icon: '✨',
+    icon: '/logo_suvarnaprashan.png',
     title: 'Suvarnaprashan',
     desc: 'Ayurvedic gold-liquid drops for intelligence and immunity in children.',
     price: '₹50',
@@ -271,8 +271,8 @@ export default function PublicNav() {
                         animationDelay: `${idx * 0.05}s`,
                       }}
                     >
-                      <div className="mega-menu-icon-wrap" style={{ fontSize: '1.8rem', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--cream)', width: 52, height: 52, borderRadius: '12px', border: '1px solid rgba(184, 144, 71, 0.15)', flexShrink: 0, transition: 'all 0.3s' }}>
-                        {s.icon}
+                      <div className="mega-menu-icon-wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--cream)', width: 52, height: 52, borderRadius: '12px', border: '1px solid rgba(184, 144, 71, 0.15)', flexShrink: 0, transition: 'all 0.3s', padding: 6, overflow: 'hidden' }}>
+                        <img src={s.icon} alt={s.title} style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
                       </div>
                       <div>
                         <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.25rem', fontWeight: 600, color: 'var(--brown)', marginBottom: 6 }}>

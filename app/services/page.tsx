@@ -8,7 +8,7 @@ import OfflineBookingModal from '@/components/OfflineBookingModal';
 const SERVICES = [
   {
     id: 'clinic-consultation',
-    icon: '🏥',
+    icon: '/logo_clinic.png',
     title: 'In-Clinic Ayurved Consultation',
     price: '₹500',
     desc: 'Personalized Ayurvedic consultation with Dr. Vishal B Bhuva at our Vesu, Surat clinic. Includes pulse analysis (Nadi Pariksha), Prakriti diagnosis, and customized herbal treatment plan.',
@@ -18,7 +18,7 @@ const SERVICES = [
   },
   {
     id: 'video-consultation',
-    icon: '💻',
+    icon: '/logo_video.png',
     title: 'Tele / Video Consultation',
     price: '₹800',
     desc: 'Consult from anywhere in India via secure video call. Get detailed root-cause evaluation, customized diet plans, and authentic herbal prescriptions delivered to your home.',
@@ -28,7 +28,7 @@ const SERVICES = [
   },
   {
     id: 'panchkarma-detox',
-    icon: '🌊',
+    icon: '/logo_panchkarma.png',
     title: 'Panchkarma detox Therapy',
     price: 'Customized',
     desc: 'Ancient Ayurvedic detoxification therapies including Vamana, Virechana, Basti, Nasya & Raktamokshana. Complete deep-tissue cellular rejuvenation and cleansing.',
@@ -38,7 +38,7 @@ const SERVICES = [
   },
   {
     id: 'shirodhara-ritual',
-    icon: '🫗',
+    icon: '/logo_shirodhara.png',
     title: 'Shirodhara Ritual',
     price: 'Customized',
     desc: 'Continuous stream of warm medicated herbal oil poured on the forehead. Relieves stress, chronic migraines, insomnia, and promotes absolute mental peace.',
@@ -48,7 +48,7 @@ const SERVICES = [
   },
   {
     id: 'akshi-tarpan',
-    icon: '👁️',
+    icon: '/logo_akshi.png',
     title: 'Akshi-Tarpan (Eye Care)',
     price: 'Customized',
     desc: 'Medicated organic ghee pooled around the eyes inside a dough ring to nourish visual pathways, strengthen eye muscles, and relieve digital eye strain.',
@@ -58,7 +58,7 @@ const SERVICES = [
   },
   {
     id: 'suvarnaprashan',
-    icon: '✨',
+    icon: '/logo_suvarnaprashan.png',
     title: 'Suvarnaprashan Immunization',
     price: '₹50',
     desc: 'Ancient Ayurvedic immunization camps for children (0–16 years). Pure gold particles blended with intelligence-promoting herbs and raw honey for strength and immunity.',
@@ -164,7 +164,17 @@ export default function ServicesPage() {
                       <img src={s.img} alt={s.title} className="parallax-img" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     ) : (
                       <div className="service-fallback-icon" style={{ height: '100%', background: 'var(--green-pale)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <span style={{ fontSize: '6rem' }}>{s.icon}</span>
+                        <img
+                          src={s.icon}
+                          alt={s.title}
+                          style={{
+                            width: '110px',
+                            height: '110px',
+                            objectFit: 'contain',
+                            filter: 'drop-shadow(0 4px 16px rgba(184,144,71,0.3))',
+                            opacity: 0.92,
+                          }}
+                        />
                       </div>
                     )}
                   </div>
