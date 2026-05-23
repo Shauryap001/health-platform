@@ -92,10 +92,27 @@ export default function PublicNav() {
     <>
       <nav className={`pub-nav ${scrolled ? 'scrolled' : ''} ${open ? 'nav-open' : ''}`}>
         {/* Logo */}
-        <Link href="/" className="pub-logo" onClick={() => setOpen(false)} title="Shashwat Ayurveda">
-          <div className="pub-logo-icon">🌿</div>
-          <span className="pub-logo-text">
-            Shashwat <span>Ayurveda</span>
+        <Link href="/" className="pub-logo" onClick={() => setOpen(false)} title="Shashwat Ayurveda" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
+          <img 
+            src="/shashwat_logo.png" 
+            alt="Shashwat Ayurveda Logo" 
+            style={{ 
+              width: '42px', 
+              height: '42px', 
+              borderRadius: '50%', 
+              border: scrolled ? '1.5px solid rgba(58, 95, 67, 0.2)' : '1.5px solid rgba(255, 255, 255, 0.4)',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+              objectFit: 'cover',
+              transition: 'border-color 0.4s'
+            }} 
+          />
+          <span className="pub-logo-text-custom" style={{ display: 'flex', flexDirection: 'column' }}>
+            <span style={{ fontSize: '1.25rem', fontFamily: "'Cormorant Garamond', 'Playfair Display', serif", fontWeight: 700, color: scrolled ? 'var(--green-dark)' : 'white', letterSpacing: '0.02em', lineHeight: 1.1, transition: 'color 0.4s' }}>
+              Shashwat
+            </span>
+            <span style={{ fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, color: 'var(--gold)', letterSpacing: '0.15em', textTransform: 'uppercase', lineHeight: 1 }}>
+              Ayurveda
+            </span>
           </span>
         </Link>
 
@@ -205,7 +222,7 @@ export default function PublicNav() {
         {/* Mega Menu Dropdown (placed inside nav for relative positioning context) */}
         {servicesDropdownOpen && (
           <div
-            className="mega-menu no-scrollbar"
+            className="mega-menu"
             style={{
               position: 'absolute',
               top: '100%',
@@ -214,52 +231,66 @@ export default function PublicNav() {
               background: 'var(--cream)',
               color: 'var(--text-dark)',
               borderBottom: '1.5px solid rgba(184, 144, 71, 0.25)',
-              boxShadow: '0 20px 40px rgba(0,0,0,0.08)',
-              padding: '30px 60px 40px',
+              boxShadow: '0 25px 50px rgba(32, 53, 37, 0.12)',
+              padding: '30px 60px 25px',
               animation: 'slideDownFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
               zIndex: 1001,
-              maxHeight: '50vh',
-              overflowY: 'auto',
+              maxHeight: '65vh',
+              display: 'flex',
+              flexDirection: 'column',
             }}
           >
-            <div className="container-pub">
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px 32px' }}>
-                {NAV_SERVICES.map((s, idx) => (
-                  <Link
-                    key={idx}
-                    href={`/services#${s.id}`}
-                    onClick={() => setServicesDropdownOpen(false)}
-                    className="mega-menu-item"
-                    style={{
-                      display: 'flex',
-                      gap: 16,
-                      textDecoration: 'none',
-                      padding: '16px',
-                      borderRadius: '16px',
-                      transition: 'all 0.3s ease',
-                      border: '1.5px solid transparent',
-                      background: 'rgba(250, 248, 245, 0.4)',
-                      color: 'var(--text-dark)',
-                    }}
-                  >
-                    <div style={{ fontSize: '1.8rem', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--ivory)', width: 50, height: 50, borderRadius: '12px', border: '1px solid rgba(184, 144, 71, 0.15)', flexShrink: 0 }}>
-                      {s.icon}
-                    </div>
-                    <div>
-                      <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.2rem', fontWeight: 600, color: 'var(--brown)', marginBottom: 4 }}>
-                        {s.title}
+            <div className="container-pub" style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden' }}>
+              {/* Scrollable grid of options */}
+              <div 
+                className="mega-menu-grid-scroll" 
+                style={{ 
+                  overflowY: 'auto', 
+                  padding: '10px 4px 20px', 
+                  maxHeight: 'calc(65vh - 120px)' 
+                }}
+              >
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px 32px' }}>
+                  {NAV_SERVICES.map((s, idx) => (
+                    <Link
+                      key={idx}
+                      href={`/services#${s.id}`}
+                      onClick={() => setServicesDropdownOpen(false)}
+                      className="mega-menu-item"
+                      style={{
+                        display: 'flex',
+                        gap: 18,
+                        textDecoration: 'none',
+                        padding: '20px',
+                        borderRadius: '16px',
+                        border: '1px solid rgba(184, 144, 71, 0.12)',
+                        background: 'var(--ivory)',
+                        color: 'var(--text-dark)',
+                        transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
+                        animation: 'staggerSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both',
+                        animationDelay: `${idx * 0.05}s`,
+                      }}
+                    >
+                      <div className="mega-menu-icon-wrap" style={{ fontSize: '1.8rem', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--cream)', width: 52, height: 52, borderRadius: '12px', border: '1px solid rgba(184, 144, 71, 0.15)', flexShrink: 0, transition: 'all 0.3s' }}>
+                        {s.icon}
                       </div>
-                      <p style={{ fontSize: '0.82rem', color: 'var(--text-mid)', lineHeight: 1.45, margin: 0, fontWeight: 300 }}>
-                        {s.desc}
-                      </p>
-                      <div style={{ marginTop: 8, fontSize: '0.75rem', color: 'var(--gold)', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
-                        Fee: {s.price}
+                      <div>
+                        <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.25rem', fontWeight: 600, color: 'var(--brown)', marginBottom: 6 }}>
+                          {s.title}
+                        </div>
+                        <p style={{ fontSize: '0.8rem', color: 'var(--text-mid)', lineHeight: 1.55, margin: 0, fontWeight: 300 }}>
+                          {s.desc}
+                        </p>
+                        <div style={{ marginTop: 10, fontSize: '0.72rem', color: 'var(--gold)', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                          Fee: {s.price}
+                        </div>
                       </div>
-                    </div>
-                  </Link>
-                ))}
+                    </Link>
+                  ))}
+                </div>
               </div>
-              <div style={{ textAlign: 'center', marginTop: 36, borderTop: '1px solid rgba(184, 144, 71, 0.12)', paddingTop: 20 }}>
+              {/* Sticky bottom CTA - Never cut off */}
+              <div style={{ textAlign: 'center', borderTop: '1px solid rgba(184, 144, 71, 0.12)', paddingTop: 16, flexShrink: 0 }}>
                 <Link 
                   href="/services" 
                   onClick={() => setServicesDropdownOpen(false)}
@@ -391,16 +422,37 @@ export default function PublicNav() {
           .pub-nav-btns { display: none !important; }
           .pub-links { display: none !important; }
         }
+        .pub-nav-dropdown-btn:hover {
+          color: var(--gold-light) !important;
+        }
+        .pub-nav.scrolled .pub-nav-dropdown-btn:hover {
+          color: var(--green-primary) !important;
+        }
         .mega-menu-item:hover {
+          background: rgba(197, 168, 128, 0.08) !important;
+          border-color: rgba(184, 144, 71, 0.35) !important;
+          transform: translateY(-4px);
+          box-shadow: var(--shadow-md);
+        }
+        .mega-menu-item:hover .mega-menu-icon-wrap {
           background: var(--ivory) !important;
-          border-color: rgba(184, 144, 71, 0.25) !important;
-          transform: translateY(-2px);
-          box-shadow: var(--shadow-sm);
+          transform: scale(1.08) rotate(4deg);
+          border-color: var(--gold-light) !important;
         }
         .view-all-services-btn:hover {
           background: var(--green-dark) !important;
           transform: translateY(-1px);
           box-shadow: var(--shadow-md);
+        }
+        .mega-menu-grid-scroll::-webkit-scrollbar {
+          width: 5px;
+        }
+        .mega-menu-grid-scroll::-webkit-scrollbar-track {
+          background: rgba(184, 144, 71, 0.05);
+        }
+        .mega-menu-grid-scroll::-webkit-scrollbar-thumb {
+          background: var(--gold-light);
+          border-radius: 4px;
         }
         @keyframes slideDownFade {
           from {
@@ -415,6 +467,16 @@ export default function PublicNav() {
         @keyframes fadeInOverlay {
           from { opacity: 0; }
           to { opacity: 1; }
+        }
+        @keyframes staggerSlideUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
       `}</style>
     </>
