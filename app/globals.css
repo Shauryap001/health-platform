@@ -256,15 +256,16 @@ button { cursor: pointer; }
 .hamburger {
   display: none;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px; /* decreased from 6px */
   cursor: pointer;
-  padding: 8px;
+  padding: 4px; /* decreased from 8px */
   border: none;
   background: transparent;
 }
 .hamburger span {
   display: block;
-  width: 24px; height: 1.5px;
+  width: 20px; /* decreased from 24px */
+  height: 1.5px;
   background: white;
   border-radius: 1px;
   transition: all 0.3s;
@@ -280,7 +281,7 @@ button { cursor: pointer; }
   backdrop-filter: blur(35px);
   -webkit-backdrop-filter: blur(35px);
   z-index: 999;
-  padding: 120px 40px 60px;
+  padding: 140px 40px 60px; /* Increased top padding to prevent overlap */
   display: flex;
   flex-direction: column;
   justify-content: center;

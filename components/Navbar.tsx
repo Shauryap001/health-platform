@@ -52,6 +52,7 @@ export default function PublicNav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [user, setUser] = useState<StaffUser | null>(null);
 
   useEffect(() => {
@@ -67,6 +68,7 @@ export default function PublicNav() {
   // Sync overlays: close services dropdown if mobile drawer is open, and vice-versa
   useEffect(() => {
     if (open) setServicesDropdownOpen(false);
+    else setMobileServicesOpen(false);
   }, [open]);
 
   useEffect(() => {
@@ -94,7 +96,7 @@ export default function PublicNav() {
         {/* Logo */}
         <Link href="/" className="pub-logo" onClick={() => setOpen(false)} title="Shashwat Ayurveda" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
           <img 
-            src="/shashwat_logo.png" 
+            src="/main-logo.jpg" 
             alt="Shashwat Ayurveda Logo" 
             style={{ 
               width: '42px', 
@@ -321,9 +323,78 @@ export default function PublicNav() {
 
       {/* Mobile Drawer */}
       <div className={`mobile-drawer ${open ? 'open' : ''}`}>
-        {links.map(l => (
-          <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</Link>
-        ))}
+        {links.map(l => {
+          if (l.label === 'Services') {
+            return (
+              <div key={l.href} style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMobileServicesOpen(!mobileServicesOpen);
+                  }}
+                  style={{
+                    background: 'none', border: 'none',
+                    fontFamily: "'Cormorant Garamond', 'Playfair Display', serif",
+                    fontSize: 'clamp(1.8rem, 7vw, 2.6rem)',
+                    fontWeight: 300, color: 'var(--cream)',
+                    padding: '12px 0', width: '100%',
+                    borderBottom: '1px solid rgba(197, 168, 128, 0.15)',
+                    display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '12px',
+                    letterSpacing: '0.02em', cursor: 'pointer'
+                  }}
+                >
+                  {l.label}
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: mobileServicesOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s' }}>
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                {mobileServicesOpen && (
+                  <div style={{ display: 'flex', flexDirection: 'column', width: '100%', background: 'rgba(255,255,255,0.05)', borderRadius: '16px', padding: '16px 0', marginTop: '12px', gap: '8px' }}>
+                    {NAV_SERVICES.map((s, idx) => (
+                      <Link
+                        key={idx}
+                        href={`/services#${s.id}`}
+                        onClick={() => setOpen(false)}
+                        style={{
+                          fontFamily: "'Inter', sans-serif",
+                          fontSize: '1.05rem',
+                          color: 'var(--gold-light)',
+                          padding: '10px 20px',
+                          border: 'none',
+                          textAlign: 'center',
+                          letterSpacing: '0.03em',
+                          textDecoration: 'none'
+                        }}
+                      >
+                        {s.title}
+                      </Link>
+                    ))}
+                    <Link
+                      href="/services"
+                      onClick={() => setOpen(false)}
+                      style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: '1rem',
+                        color: 'var(--cream)',
+                        padding: '14px 20px 8px',
+                        border: 'none',
+                        textAlign: 'center',
+                        fontWeight: 600,
+                        textDecoration: 'underline',
+                        marginTop: '4px'
+                      }}
+                    >
+                      View All Services
+                    </Link>
+                  </div>
+                )}
+              </div>
+            );
+          }
+          return (
+            <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</Link>
+          );
+        })}
         <div className="mobile-drawer-btns" style={{ display: 'flex', flexDirection: 'column', gap: 12, width: '100%' }}>
           {user ? (
             <>
